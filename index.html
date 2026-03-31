@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>私人笔记库</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .search-box {
+            margin: 20px 0;
+        }
+        .search-box input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        nav {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        nav h2 {
+            margin-bottom: 15px;
+            color: #333;
+        }
+        nav ul {
+            list-style: none;
+        }
+        nav ul li {
+            margin-bottom: 10px;
+        }
+        nav ul li a {
+            color: #666;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        nav ul li a:hover {
+            color: #000;
+        }
+        .content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .folder {
+            margin-bottom: 30px;
+        }
+        .folder h2 {
+            margin-bottom: 15px;
+            color: #333;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+        .note-item {
+            margin-bottom: 15px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        .note-item:hover {
+            background-color: #f0f0f0;
+        }
+        .note-item h3 {
+            margin-bottom: 5px;
+            color: #333;
+        }
+        .note-item p {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        .note-item .tags {
+            font-size: 12px;
+            color: #999;
+        }
+        .note-item .tags span {
+            background-color: #e0e0e0;
+            padding: 2px 8px;
+            border-radius: 12px;
+            margin-right: 5px;
+        }
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #999;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>私人笔记库</h1>
+            <p>社会观察、焦虑思考、人生感悟、创作素材</p>
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="搜索笔记...">
+            </div>
+        </header>
+        
+        <nav>
+            <h2>目录导航</h2>
+            <ul>
+                <li><a href="#folder1">01_自我焦虑与和解</a></li>
+                <li><a href="#folder2">02_社会现象观察</a></li>
+                <li><a href="#folder3">03_创作素材库存</a></li>
+                <li><a href="tags.html">标签归档</a></li>
+            </ul>
+        </nav>
+        
+        <div class="content">
+            <div class="folder" id="folder1">
+                <h2>01_自我焦虑与和解</h2>
+                <!-- 笔记将在这里显示 -->
+            </div>
+            
+            <div class="folder" id="folder2">
+                <h2>02_社会现象观察</h2>
+                <!-- 笔记将在这里显示 -->
+            </div>
+            
+            <div class="folder" id="folder3">
+                <h2>03_创作素材库存</h2>
+                <!-- 笔记将在这里显示 -->
+            </div>
+        </div>
+        
+        <footer>
+            <p>© 2024 私人笔记库</p>
+        </footer>
+    </div>
+    
+    <script>
+        // 搜索功能
+        document.getElementById('searchInput').addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            const noteItems = document.querySelectorAll('.note-item');
+            
+            noteItems.forEach(item => {
+                const content = item.textContent.toLowerCase();
+                if (content.includes(searchTerm)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
